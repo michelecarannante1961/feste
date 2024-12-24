@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merry Christmas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #00111a, #004466);
+      font-family: 'Arial', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .tree-container {
+      text-align: center;
+      font-size: 0; /* Prevent spacing issues between lines */
+    }
+
+    .star {
+      font-size: 3rem; /* Bigger star */
+      color: gold;
+      opacity: 0;
+      animation: fade-in 1s forwards;
+    }
+
+    .tree {
+      font-size: 0; /* Prevent spacing issues */
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .tree .line {
+      display: block;
+      color: green;
+      font-size: 2rem; /* Increase size of the tree */
+      text-align: center;
+      white-space: nowrap;
+      opacity: 0;
+      animation: grow-tree 1s forwards;
+    }
+
+    .trunk {
+      display: block;
+      background: brown;
+      width: 40px; /* Larger trunk */
+      height: 60px;
+      margin: 15px auto;
+      opacity: 0;
+      animation: fade-in 1s 7s forwards;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.5rem; /* Larger message */
+      text-align: center;
+      opacity: 0;
+      animation: fade-in 2s 8s forwards;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes grow-tree {
+      from {
+        opacity: 0;
+        transform: translateY(20px); /* Slight downward movement */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tree-container">
+    <div class="star">*</div>
+    <div class="tree"></div>
+    <div class="trunk"></div>
+    <div class="message">Scilla Cariddi Rental Boat Auguri di Buon Natale</div>
+  </div>
+
+  <script>
+    const tree = document.querySelector('.tree');
+
+    function createTree() {
+      const lines = [
+        '*',              // Star on top
+        '   /\\',          // First layer
+        '  /  \\',         // Second layer
+        ' /    \\',        // Third layer
+        '/******\\',       // Fourth layer
+        '/********\\',     // Fifth layer
+        '/**********\\',   // Sixth layer
+        '/************\\'  // Seventh layer
+      ];
+
+      lines.forEach((line, index) => {
+        const div = document.createElement('div');
+        div.className = 'line';
+        div.textContent = line;
+        div.style.animationDelay = `${index * 0.5}s`; // Add delay for animation
+        tree.appendChild(div);
+      });
+    }
+
+    createTree();
+  </script>
+</body>
+</html>
